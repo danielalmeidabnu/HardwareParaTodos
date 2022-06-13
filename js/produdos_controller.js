@@ -2,7 +2,6 @@ var NomeProduto = "";
 var IdProduto = 0;
 var PrecoProduto = 0;
 
-
 //Clicar no botão Buscar
 $(document).ready(function() {
     $("#buscar").click(function(){

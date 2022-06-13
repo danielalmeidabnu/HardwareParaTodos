@@ -28,3 +28,7 @@
   .btn-dark, .btn-dark:hover, .btn-dark:active, .btn-dark:visited {
     background-color: #f15c00 !important;
 }
+
+  .active{
+    color: #f15c00;
+  }
