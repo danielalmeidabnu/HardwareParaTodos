@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>Cadastro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="estilo.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="clientes_controller.js"></script>
+
+</head>
+
+<body id="corpo">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand navbar-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand">
+        <img src="images/raposa.png" width="90" height="90" class="d-inline-block align-top" alt="">
+      </a>
+      <img src="images/logo.png" width="90" height="38" class="d-inline-block align-top" alt=""> 
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cadastro.html">Catálogo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="pedidos.html">Pedidos</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.instagram.com/_hardwareparatodos_/">Instagram</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Navbar -->
+  
+  <br>
+  <div class="container">
+    <div class="jumbotron" style="background-color: #e5e8e8 ">
+      <div class="container-fluid" id="destaques">
+        
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Email</label>
+              <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Senha</label>
+              <input type="password" class="form-control" id="inputPassword4" placeholder="Senha">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputAddress">Endereço</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Rua princiap, 1234">
+          </div>
+          <div class="form-group">
+            <label for="inputAddress2">Complemento</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartamento, estúdio...">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">Cidade</label>
+              <input type="text" class="form-control" id="inputCity" placeholder="São Paulo, Minas Gerais...">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputState">Estado</label>
+              <select id="inputState" class="form-control">
+                <option selected>Escolha...</option>
+                <option>SC</option>
+                <option>SP</option>
+                <option>RS</option>
+                <option>MG</option>
+                <option>AC</option>
+                <option>AL</option>
+                <option>GO</option>
+                <option>AC</option>
+                <option>MA</option>
+                <option>MT</option>
+                <option>MS</option>
+                <option>BA</option>
+                <option>CE</option>
+                <option>AP</option>
+                <option>AM</option>
+                <option>DF</option>
+                <option>SE</option>
+                <option>PA</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputZip">CEP</label>
+              <input type="text" class="form-control" id="inputZip">
+            </div>
+          </div>
+          <button id="gravar" class="btn btn-dark btn-block">Cadastrar</button>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

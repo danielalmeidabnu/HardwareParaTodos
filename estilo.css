@@ -1,0 +1,30 @@
+
+  #corpo {
+    background-image: url("images/completo.png");
+  }
+
+  #img {
+    margin-left: 1px;
+    margin-bottom: 10px;
+  }
+
+  #textosmall{
+  	padding-right: 80px;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+ }
+ 
+ .row > div[class*='col-'] {
+   display: flex;
+ }
+
+  .text-laranja {
+    color: #f15c00;
+  }
+
+  .btn-dark, .btn-dark:hover, .btn-dark:active, .btn-dark:visited {
+    background-color: #f15c00 !important;
+}

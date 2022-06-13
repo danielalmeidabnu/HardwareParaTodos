@@ -1,0 +1,1 @@
+var db = openDataBase('TrabalhoMarketing', '1.0', 'Marketing', 2 * 1024 * 1024);
