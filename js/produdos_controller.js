@@ -44,7 +44,7 @@ function mostrarDado(dados) {
                                 alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">${dados.nome}</h5>
-                                <p id="NomeProduto" class="card-text">${dados.descricao}.</p>
+                                <p id="NomeProduto" class="card-text">${dados.descricao}</p>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item text-laranja">Marca ${dados.marca}</li>
                                     <li class="list-group-item text-laranja" id="preco"><b>Preço</> R$${dados.preco}</li>
@@ -99,7 +99,7 @@ function obterProdutos() {
                                 alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">${el.nome}</h5>
-                                <p class="card-text">${el.descricao}.</p>
+                                <p class="card-text">${el.descricao}</p>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item text-laranja">Marca ${el.marca}</li>
                                     <li class="list-group-item text-laranja">Preço R$ ${el.preco}</li>

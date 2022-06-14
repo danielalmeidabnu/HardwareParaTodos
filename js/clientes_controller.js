@@ -1,7 +1,7 @@
 var C_CIdCliente = 0;
 var Prosseguir = true;
 
-export function RetornaIdCliente() {
+function RetornaIdCliente() {
   return C_CIdCliente
 }
 // Clicar no botão Gravar
