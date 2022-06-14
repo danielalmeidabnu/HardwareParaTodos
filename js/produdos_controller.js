@@ -3,34 +3,40 @@ var IdProduto = 0;
 var PrecoProduto = 0;
 
 //Clicar no botão Buscar
-$(document).ready(function() {
-    $("#buscar").click(function(){
+$(document).ready(function () {
+    $("#buscar").click(function () {
         var IdProduto = $("#IdProduto").val();
         obterProdutoId(IdProduto);
-    }); 
+    });
 });
 
 function obterProdutoId(Id) {
     $.ajax({
+        Headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, POST, DELETE, OPTIONS',
+            'Access-Control-Max-Age': '86400'
+        },
         "crossDomain": true,
         "url": `http://localhost:5000/produtos/${Id}`,
         "method": "GET",
         success: function (dados) {
             mostrarDado(dados);
         }
-    }) 
+    })
 }
 
-    function mostrarDado(dados) {
-        const tbody = $('#produtos');
-        const ttbody = $('#produtosId');
-        NomeProduto = dados.nome;
-        IdProduto = dados.id;
-        PrecoProduto = dados.preco;
-        
-        tbody.remove()
-        ttbody.empty()
-        ttbody.append(`
+function mostrarDado(dados) {
+    const tbody = $('#produtos');
+    const ttbody = $('#produtosId');
+    NomeProduto = dados.nome;
+    IdProduto = dados.id;
+    PrecoProduto = dados.preco;
+
+    tbody.remove()
+    ttbody.empty()
+    ttbody.append(`
                         <div class="col-sm-4">
                         <div class="card card border-dark mb-4">
                             <img class="card-img-top"
@@ -41,7 +47,7 @@ function obterProdutoId(Id) {
                                 <p id="NomeProduto" class="card-text">${dados.descricao}.</p>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item text-laranja">Marca ${dados.marca}</li>
-                                    <li class="list-group-item text-laranja" id="preco">Preço R$ ${dados.preco}</li>
+                                    <li class="list-group-item text-laranja" id="preco"><b>Preço</> R$${dados.preco}</li>
                                 </ul>
                                 <br>
                                 <form>
@@ -63,10 +69,16 @@ function obterProdutoId(Id) {
                         </div>
                     </div>                          
         `)
-    }
+}
 
 function obterProdutos() {
     $.ajax({
+        Headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, POST, DELETE, OPTIONS',
+            'Access-Control-Max-Age': '86400'
+        },
         "async": true,
         "crossDomain": true,
         "url": "http://localhost:5000/produtos",
@@ -116,7 +128,7 @@ function obterProdutos() {
     }
 }
 
-function CadastrarPedido(){
+function CadastrarPedido() {
     var Prosseguir = true
     //Campo da tela
     const QtdProduto = $('#qtd').val()
@@ -125,31 +137,31 @@ function CadastrarPedido(){
         Prosseguir = false
         alert('Para gravar um pedido é necessário inserir uma quantidade no produto!')
     }
-    if (Prosseguir) {       
-        var pedido =  {
+    if (Prosseguir) {
+        var pedido = {
             "clienteId": 1,
             "itens": [
-            {
-                "produtoId": IdProduto,
-                "produto": NomeProduto,
-                "quantidade": QtdProduto,
-                "valor": PrecoProduto
-            }
+                {
+                    "produtoId": IdProduto,
+                    "produto": NomeProduto,
+                    "quantidade": QtdProduto,
+                    "valor": PrecoProduto
+                }
             ],
             "valorTotal": PrecoProduto * QtdProduto
         }
 
         $.ajax({
-            Headers :{
+            Headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': '*',
                 'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, POST, DELETE, OPTIONS',
                 'Access-Control-Max-Age': '86400'
-              },
-            'type' : 'POST',
-            'url'  : 'http://localhost:5000/pedidos',
-            'data' : JSON.stringify(pedido),
-            'contentType':'application/json',
+            },
+            'type': 'POST',
+            'url': 'http://localhost:5000/pedidos',
+            'data': JSON.stringify(pedido),
+            'contentType': 'application/json',
             'dataType': 'json'
         });
     }

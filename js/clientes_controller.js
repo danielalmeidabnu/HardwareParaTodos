@@ -1,50 +1,54 @@
+var C_CIdCliente = 0;
 var Prosseguir = true;
 
+export function RetornaIdCliente() {
+  return C_CIdCliente
+}
 // Clicar no botão Gravar
-$(document).ready(function() {
-  $("#gravarCliente").click(function(){
+$(document).ready(function () {
+  $("#gravarCliente").click(function () {
     gravarCliente()
-  }); 
+  });
 });
 
 // Clicar em Cadastro
-$(document).ready(function() {
-  $("#cadastro").click(function(){
+$(document).ready(function () {
+  $("#cadastro").click(function () {
     CadastroCliente()
-  }); 
+  });
 });
 
 // Clicar em Login
-$(document).ready(function() {
-  $("#login").click(function(){
+$(document).ready(function () {
+  $("#login").click(function () {
     EfetuarLogin()
-  }); 
+  });
 });
 
-function EfetuarLogin(){
+function EfetuarLogin() {
   $.ajax({
     "async": true,
     "crossDomain": true,
     "url": "http://localhost:5000/clientes",
     "method": "GET",
     success: function (dados) {
-        acharcliente(dados);
-  }
+      acharcliente(dados);
+    }
   })
 }
 
-function acharcliente(dados){
+function acharcliente(dados) {
   const Login = $("#usuariologin").val()
   const Senha = $("#senhalogin").val()
   $.each(dados, function (i, el) {
-    if (Login == el.login && Senha == el.senha ) {
-        var C_CIdCliente = el.id;
-        alert(`Usuário ${el.nome} logado!`)
-  }
+    if (Login == el.login && Senha == el.senha) {
+      C_CIdCliente = el.id;
+      alert(`Usuário ${el.nome} logado!`)
+    }
   })
 }
 
-function CadastroCliente(){
+function CadastroCliente() {
   const bodyDestaques = $('#destaques')
   const bodyLogin = $('#login')
   bodyLogin.remove()
@@ -121,53 +125,53 @@ function CadastroCliente(){
   `)
 }
 
-function gravarCliente(){
+function gravarCliente() {
   //Pegando valores do formulário
-  const nome =$("#nome").val()
-  const cep =$("#cep").val()
-  const logradouro =$("#endereco").val()
+  const nome = $("#nome").val()
+  const cep = $("#cep").val()
+  const logradouro = $("#endereco").val()
   // const numero =$("#numero").val()
-  const complemento =$("#complemento").val()
-  const cidade =$("#cidade").val()
-  const uf =$("#uf").val()
-  const login =$("#login").val()
-  const senha =$("#senha").val()
-  const email =$("#email").val()
-  
+  const complemento = $("#complemento").val()
+  const cidade = $("#cidade").val()
+  const uf = $("#uf").val()
+  const login = $("#login").val()
+  const senha = $("#senha").val()
+  const email = $("#email").val()
+
   if (login == "" || senha == "") {
-     Prosseguir = false 
-     alert('É Necessário no minimo informa um login e senha, verifique!')
+    Prosseguir = false
+    alert('É Necessário no minimo informa um login e senha, verifique!')
   }
   if (Prosseguir) {
-      var cliente =  {
-        nome: nome,
-        endereco: {
-          id: "0",
-          cep: cep,
-          logradouro: logradouro,
-          numero: "0",
-          complemento: complemento,
-          bairro: "teste",
-          cidade: cidade,
-          uf: uf
-        },
-        login: login,
-        senha: senha,
-        email: email
-      }
-      
-      $.ajax({
-        Headers :{
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Headers': '*',
-          'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, POST, DELETE, OPTIONS',
-          'Access-Control-Max-Age': '86400'
-        },
-          'type' : 'POST',
-          'url'  : 'http://localhost:5000/clientes',
-          'data' : JSON.stringify(cliente),
-          'contentType':'application/json',
-          'dataType': 'json'
-      });
+    var cliente = {
+      nome: nome,
+      endereco: {
+        id: "0",
+        cep: cep,
+        logradouro: logradouro,
+        numero: "0",
+        complemento: complemento,
+        bairro: "teste",
+        cidade: cidade,
+        uf: uf
+      },
+      login: login,
+      senha: senha,
+      email: email
+    }
+
+    $.ajax({
+      Headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, POST, DELETE, OPTIONS',
+        'Access-Control-Max-Age': '86400'
+      },
+      'type': 'POST',
+      'url': 'http://localhost:5000/clientes',
+      'data': JSON.stringify(cliente),
+      'contentType': 'application/json',
+      'dataType': 'json'
+    });
   }
 }
