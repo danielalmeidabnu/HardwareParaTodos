@@ -1,5 +1,3 @@
-// import {RetornaIdCliente} from './clientes_controller'
-
 function obterPedidos() {
   $.ajax({
     Headers: {
@@ -21,8 +19,6 @@ function obterPedidos() {
 function mostrarPedido(dados) {
   const tbody = $('#pedidos');
   $.each(dados, function (i, el) {
-    // const C_CId = RetornaIdCliente()
-    // if (C_CId = el.clienteid) {
     tbody.append(`
                         <div class="card border-dark mb-3">
                             <h5 class="card-header">Pedido Nª ${el.id}</h5>
@@ -33,7 +29,6 @@ function mostrarPedido(dados) {
                           </div>
                         </div>
       `)
-    // }
   })
 
 }

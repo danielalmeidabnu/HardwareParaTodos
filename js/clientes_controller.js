@@ -27,6 +27,12 @@ $(document).ready(function () {
 
 function EfetuarLogin() {
   $.ajax({
+    Headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, POST, DELETE, OPTIONS',
+      'Access-Control-Max-Age': '86400'
+    },
     "async": true,
     "crossDomain": true,
     "url": "http://localhost:5000/clientes",
